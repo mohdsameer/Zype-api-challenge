@@ -1,3 +1,12 @@
-<% @res.each do |video| %>
-<%= video['thumbnails'] %><br>
+<% @response.each do |video| %>
+  <div style="min-height: 433px; width: 100%;">
+    <b>Short Description:</b><br/>
+    <%= video["short_description"] %><br/>
+
+    <b>Thumbnail:</b><br/>
+    <%= link_to "https://www.youtube.com/watch?v=#{video['youtube_id']}" do %>
+      <img src="<%= video["thumbnails"].first["url"] %>"><br/>
+      <%= video["title"] %><br/>
+    <% end %>
+  </div>
 <% end %>
