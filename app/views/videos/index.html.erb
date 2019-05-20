@@ -1,12 +1,21 @@
-<% @response.each do |video| %>
-  <div style="min-height: 433px; width: 100%;">
-    <b>Short Description:</b><br/>
-    <%= video["short_description"] %><br/>
+<div class="container">
+  <div>
+    <h2 align="center">Index</h2>
+  </div>
+  <div>
+    <% @response.each do |video| %>
+      <% if video["subscription_required"] == false %>
+        <div style="min-height: 433px; width: 100%;">
+          <b>Short Description:</b><br/>
+          <%= video["short_description"] %><br/>
 
-    <b>Thumbnail:</b><br/>
-    <%= link_to "https://www.youtube.com/watch?v=#{video['youtube_id']}" do %>
-      <img src="<%= video["thumbnails"].first["url"] %>"><br/>
-      <%= video["title"] %><br/>
+          <b>Thumbnail:</b><br/>
+          <%= link_to video_path(id: video["_id"]) do %>
+            <img src="<%= video["thumbnails"].first["url"] %>"><br/>
+            <%= video["title"] %><br/>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
-<% end %>
+</div>
