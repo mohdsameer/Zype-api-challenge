@@ -1,12 +1,19 @@
-<% @response.each do |video| %>
-  <div style="min-height: 433px; width: 100%;">
-    <b>Short Description:</b><br/>
-    <%= video["short_description"] %><br/>
-
-    <b>Thumbnail:</b><br/>
-    <%= link_to "https://www.youtube.com/watch?v=#{video['youtube_id']}" do %>
-      <img src="<%= video["thumbnails"].first["url"] %>"><br/>
-      <%= video["title"] %><br/>
-    <% end %>
+<header class="header">
+  <div class="inner_header">
+    <div class="logo">
+      <img src="https://1wyo4j2clpiy1tn1rufbc1j6-wpengine.netdna-ssl.com/wp-content/uploads/Zype-LogeGray.png">
+    </div>
+    <%= render partial: 'layouts/nav'%>
+  </div> 
+</header>
+<%#= render partial: 'layouts/nav'%>
+<div class="content">
+  <div class="row">
+    <div>
+      <%@videos.each do |video|%>
+        <%=render partial: 'videos/index_row', :locals => {:video => video, :page => @page} %>
+      <%end%>
+    </div>
   </div>
-<% end %>
+</div>
+<%#=render partial: 'layouts/footer', :locals => {:page => @page}%>
