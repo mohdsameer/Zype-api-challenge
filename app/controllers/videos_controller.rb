@@ -3,7 +3,6 @@ class VideosController < ApplicationController
     @page = params['page'] ||= '1'
     zype = ZypeService.new
     @videos = zype.create_videos_from_api(@page)
-
   end
 
   def show
@@ -12,7 +11,6 @@ class VideosController < ApplicationController
     videos = zype.create_videos_from_api(@page)
     @video = videos.detect{ |vid| vid.id == params['id']}
    
-
     if @video.subs && !logged_in?
       flash[:alert] = "You Must Login or Subscribe to continue"
       redirect_to '/sessions'

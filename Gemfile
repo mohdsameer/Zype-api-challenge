@@ -5,8 +5,6 @@ gem 'dotenv-rails' #Gem to load environment variables from `.env`.
 
 gem 'faraday' # HTTP client library, with support for multiple backends
 
-gem 'bootstrap-sass' #bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
-
 gem 'bootsnap' #Boot large ruby/rails apps faster
 
 gem 'autoprefixer-rails' #Autoprefixer for Ruby and Ruby on Rails
