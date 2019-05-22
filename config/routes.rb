@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   root 'videos#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'videos/:page/:id' => 'videos#show', as: 'show_video'
+  get 'sessions', to: 'sessions#new' 
+  post 'sessions', to:'sessions#create'
+  delete 'sessions', to: 'sessions#destroy'
+  resources :videos, only: [:index]
 end
